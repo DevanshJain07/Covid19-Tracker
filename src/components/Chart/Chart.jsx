@@ -3,7 +3,7 @@ import {fetchDailyData} from '../../api'
 import {Line,Bar} from 'react-chartjs-2'
 import styles from './Chart.module.css'
 
-const Chart = ()=>{
+const Chart = ({data,country})=>{
     const [dailyData,setDailyData]=useState([])
 
     useEffect(()=>{
@@ -34,6 +34,14 @@ const Chart = ()=>{
             }]
         }}
         />):null
+    )
+
+    const barChar=(
+        data.confirmed
+        ?(
+            <Bar
+            />
+        ):null
     )
 
     return(
